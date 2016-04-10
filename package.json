@@ -1,0 +1,16 @@
+{
+  "name": "kaleidoscope",
+  "version": "1.0.0",
+  "description": "Personal psychological dashboard",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Hannan",
+  "license": "ISC",
+  "dependencies": {
+    "react": "15.0.1",
+    "react-dom": "15.0.1",
+    "react-mounter": "1.2.0"
+  }
+}
