@@ -5,52 +5,79 @@ export default Content = ({name}) => (
   <div>
   <div className="section no-pad-bot" id="index-banner">
     <div className="container">
-      <br/><br/>
-      <h1 className="header center orange-text">Hello, {name}</h1>
+      <h1 className="header center grey-text">Kaleidoscope</h1>
       <div className="row center">
-        <h5 className="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        <h5 className="header col s12 light">User-Generated Psychological Dashboard</h5>
       </div>
-      <div className="row center">
-        <a href="http://materializecss.com/getting-started.html" id="download-button" className="btn-large waves-effect waves-light orange">Get Started</a>
-      </div>
-      <br/><br/>
     </div>
   </div>
   <div className="container"/>
+  <hr />
   <div className="section">
+    <h4 className="header center">The Four Temperaments</h4>
+    <br />
     <div className="row">
-      <div className="col s12 m4">
+      <div className="col s12 m3">
         <div className="icon-block">
-          <h2 className="center light-blue-text">
-            <i className="material-icons">flash_on</i>
-          </h2>
-          <h5 className="center">Speeds up development</h5>
-
-          <p className="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+          <div className="center yellow-text">
+            <i className="material-icons">call_merge</i>
+            <h5 className="center">Air</h5>
+          </div>
         </div>
+          
+
+        <ul className="collection center">
+          <li className="collection-item light">Energetic Action</li>
+          <li className="collection-item light">Emotional Discovery</li>
+          <li className="collection-item light">Liberation of Identity</li>
+        </ul>
       </div>
 
-      <div className="col s12 m4">
+      <div className="col s12 m3">
         <div className="icon-block">
-          <h2 className="center light-blue-text">
-            <i className="material-icons">group</i>
-          </h2>
-          <h5 className="center">User Experience Focused</h5>
-
-          <p className="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+          <div className="center red-text">
+            <i className="material-icons">navigation</i>
+            <h5 className="center">Fire</h5>
+          </div>
         </div>
+
+        <ul className="collection center">
+          <li className="collection-item light">Powerful Action</li>
+          <li className="collection-item light">Goal Completion</li>
+          <li className="collection-item light">Defiant Conflict</li>
+        </ul>
       </div>
 
-      <div className="col s12 m4">
+      <div className="col s12 m3">
         <div className="icon-block">
-          <h2 className="center light-blue-text">
-            <i className="material-icons">settings</i>
-          </h2>
-          <h5 className="center">Easy to work with</h5>
-
-          <p className="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+          <div className="center green-text">
+            <i className="material-icons">view_stream</i>
+            <h5 className="center">Earth</h5>
+          </div>
         </div>
+
+        <ul className="collection center">
+          <li className="collection-item light">Structured Thought</li>
+          <li className="collection-item light">Goal Optimization</li>
+          <li className="collection-item light">Definition of Identity</li>
+        </ul>
       </div>
+
+      <div className="col s12 m3">
+        <div className="icon-block">
+          <div className="center blue-text">
+            <i className="material-icons">invert_colors</i>
+            <h5 className="center">Water</h5>
+          </div>
+        </div>
+
+        <ul className="collection center">
+          <li className="collection-item light">Flowing Thought</li>
+          <li className="collection-item light">Emotional Intuition</li>
+          <li className="collection-item light">Absorbant Conflict</li>
+        </ul>
+      </div>
+
     </div>
   </div>
   <br/><br/>
