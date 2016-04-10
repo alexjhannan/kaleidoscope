@@ -80,6 +80,5 @@ export default Content = ({name}) => (
 
     </div>
   </div>
-  <br/><br/>
 </div>
 );
