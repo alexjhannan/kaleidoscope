@@ -1,4 +1,5 @@
 import React from 'react';
+import Clock from '/client/components/clock.jsx';
 
 export default Navbar = () =>(
   <nav className="purple darken-4 small" role="navigation">
@@ -7,6 +8,7 @@ export default Navbar = () =>(
       
       <ul className="right hide-on-med-and-down">
         <li><a href="#">Link</a></li>
+        <Clock />
       </ul>
 
       <ul id="nav-mobile" className="side-nav">
