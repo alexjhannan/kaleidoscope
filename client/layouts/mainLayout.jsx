@@ -2,11 +2,15 @@
 import React from 'react';
 
 export default MainLayout = ({navbar, content, footer}) => (
-	<div>
-	{navbar}
-	<div className="container">
-		{content}
-	</div>
-	{footer}
-	</div>
+	<body>
+		<header>
+			{navbar}
+		</header>
+		<main className="container">
+			{content}
+		</main>
+		<footer>
+			{footer}
+		</footer>
+	</body>
 );

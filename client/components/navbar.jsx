@@ -1,18 +1,16 @@
 import React from 'react';
-import Clock from '/client/components/clock.jsx';
 
 export default Navbar = () =>(
   <nav className="purple darken-4 small" role="navigation">
     <div className="nav-wrapper container">
-      <a id="logo-container" href="#" className="brand-logo">Kaleidoscope</a>
+      <a id="logo-container" href="/" className="brand-logo">Kaleidoscope</a>
       
       <ul className="right hide-on-med-and-down">
-        <li><a href="#">Link</a></li>
-        <Clock />
+        <li><a href="/wiseman">Wiseman</a></li>
       </ul>
 
       <ul id="nav-mobile" className="side-nav">
-        <li><a href="#">Link</a></li>
+        <li><a href="/wiseman">Wiseman</a></li>
       </ul>
 
       <a href="#" data-activates="nav-mobile" className="button-collapse"><i className="material-icons">menu</i></a>
