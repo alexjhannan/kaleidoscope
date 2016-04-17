@@ -6,7 +6,7 @@ const PostList = ({posts}) => (
     <ul>
       {posts.map(({_id, title}) => (
         <li key={_id}>
-          <a href={FlowRouter.path('post', {_id})}>{title}</a>
+          <a href='#'>{title}</a>
         </li>
       ))}
     </ul>
@@ -14,11 +14,17 @@ const PostList = ({posts}) => (
 );
 
 import {composeWithTracker} from 'react-komposer';
+import {Meteor} from 'meteor/meteor';
+import {Posts} from '/lib/collections.jsx';
 
 function composer(props, onData) {
   const handle = Meteor.subscribe('posts');
   if(handle.ready()) {
+    console.log('handle ready');
     const posts = Posts.find({}, {sort: {_id: 1}}).fetch();
+    onData(null, {posts});
+  } else {
+    const posts = [];
     onData(null, {posts});
   };
 };

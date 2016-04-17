@@ -6,6 +6,6 @@ Meteor.methods({
   insertPost (title) {
     Posts.insert({title});
 
-    return console.log(Posts.find({}).fetch());
+    return "Post successfully inserted";
   }
 });
