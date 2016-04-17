@@ -9,7 +9,7 @@ import Footer from '/client/components/footer.jsx';
 // content pages
 import Intro from '/client/components/intro.jsx';
 import Wiseman from '/client/views/wiseman.jsx';
-import Blog from '/client/views/blog.jsx';
+import Glossary from '/client/containers/glossary.jsx';
 
 
 FlowRouter.route("/", {
@@ -36,7 +36,7 @@ FlowRouter.route("/blog", {
   action () {
     mount(MainLayout, {
       navbar: <Navbar />,
-      content: <Blog />,
+      content: <Glossary />,
       footer: <Footer />
     });
   }
