@@ -1,11 +1,11 @@
+import {Meteor} from 'meteor/meteor';
+import {Posts} from '/lib/collections.jsx';
+
+
 Meteor.methods({
   insertPost (title) {
-    check(arg1, String);
-
     Posts.insert({title});
 
-    // .. do stuff ..
-
-    return "some return value";
+    return console.log(Posts.find({}).fetch());
   }
 });
