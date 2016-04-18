@@ -1,5 +1,5 @@
-import {Posts} from '/lib/collections.jsx';
+import {GlossaryEntries} from '/lib/collections.jsx';
 
-Meteor.publish('posts', function postsFunctino () {
-	return Posts.find();
+Meteor.publish('glossary', function glossaryEntriesFunction () {
+	return GlossaryEntries.find();
 });

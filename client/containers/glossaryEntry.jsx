@@ -2,21 +2,21 @@ import {composeWithTracker} from 'react-komposer';
 import GlossaryEntryComp from '/client/components/glossaryEntry.jsx';
 
 import {Meteor} from 'meteor/meteor';
-import {Posts} from '/lib/collections.jsx';
+import {GlossaryEntries} from '/lib/collections.jsx';
 
 function composer(props, onData) {
 	editEntry = (_id, e) => {
 		e.preventDefault();
 		let description = e.target.description.value;
 		
-		Meteor.call('editDescription', {_id, description}, (err, data) => {
+		Meteor.call('editGlossaryEntryDescription', {_id, description}, (err, data) => {
 			err ? console.log(err) : console.log(data);
 		});
 	}
 
-	const handle = Meteor.subscribe('posts');
+	const handle = Meteor.subscribe('glossary');
 	if(handle.ready()) {
-		const entry = Posts.findOne(props._id);
+		const entry = GlossaryEntries.findOne(props._id);
 		console.log(entry);
 		onData(null, {entry, editEntry});
 	};

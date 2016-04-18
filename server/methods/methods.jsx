@@ -1,15 +1,15 @@
 import {Meteor} from 'meteor/meteor';
-import {Posts} from '/lib/collections.jsx';
+import {GlossaryEntries} from '/lib/collections.jsx';
 
 
 Meteor.methods({
-  insertPost (post) {
-    return Posts.insert(post);
+  insertGlossaryEntry (entry) {
+    return GlossaryEntries.insert(entry);
   },
-  deletePost (_id) {
-    return Posts.remove({_id});
+  deleteGlossaryEntry (_id) {
+    return GlossaryEntries.remove({_id});
   },
-  editDescription ({_id, description}) {
-  	return Posts.update(_id, {$set: {description}});
+  editGlossaryEntryDescription ({_id, description}) {
+  	return GlossaryEntries.update(_id, {$set: {description}});
   }
 });
