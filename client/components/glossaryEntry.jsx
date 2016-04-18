@@ -22,5 +22,5 @@ export default GlossaryEntry = ({entry, editEntry}) => (
 let styles = {};
 
 styles.textarea = {
-	height: "300px"
+	minHeight: "300px"
 }
