@@ -8,5 +8,8 @@ Meteor.methods({
   },
   deletePost (_id) {
     return Posts.remove({_id});
+  },
+  editDescription ({_id, description}) {
+  	return Posts.update(_id, {$set: {description}});
   }
 });
