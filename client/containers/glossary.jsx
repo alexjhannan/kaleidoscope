@@ -1,5 +1,6 @@
 import {composeWithTracker} from 'react-komposer';
 import GlossaryComp from '/client/components/glossary.jsx';
+import moment from 'moment';
 
 import {Meteor} from 'meteor/meteor';
 import {Posts} from '/lib/collections.jsx';
@@ -7,8 +8,12 @@ import {Posts} from '/lib/collections.jsx';
 function composer(props, onData) {
 	submitPost = (e) => {
 		e.preventDefault();
-		let title = e.target.name.value;
-		Meteor.call('insertPost', title, (err, data) => {
+
+		let post = {}
+		post.title = e.target.name.value;
+		post.createdAt = moment().format('MMM DD, YYYY');
+
+		Meteor.call('insertPost', post, (err, data) => {
 			err ? console.log(err) : console.log(data);
 		});
 	}
