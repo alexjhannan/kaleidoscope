@@ -10,7 +10,7 @@ function composer(props, onData) {
 		let description = e.target.description.value;
 		
 		Meteor.call('editGlossaryEntryDescription', {_id, description}, (err, data) => {
-			err ? console.log(err) : console.log(data);
+			err ? console.log(err) : Materialize.toast('Successfully updated this entry.', 2000);
 		});
 	}
 
