@@ -4,8 +4,9 @@ import {Posts} from '/lib/collections.jsx';
 
 Meteor.methods({
   insertPost (title) {
-    Posts.insert({title});
-
-    return "Post successfully inserted";
+    return Posts.insert({title});
+  },
+  deletePost (_id) {
+    return Posts.remove({_id});
   }
 });

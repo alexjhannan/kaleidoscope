@@ -32,11 +32,21 @@ FlowRouter.route("/wiseman", {
   }
 });
 
-FlowRouter.route("/blog", {
+FlowRouter.route("/glossary", {
   action () {
     mount(MainLayout, {
       navbar: <Navbar />,
       content: <Glossary />,
+      footer: <Footer />
+    });
+  }
+});
+
+FlowRouter.route("/glossaryEntry/:_id", {
+  action (params) {
+    mount(MainLayout, {
+      navbar: <Navbar />,
+      content: <GlossaryEntry _id={params._id}/>,
       footer: <Footer />
     });
   }
