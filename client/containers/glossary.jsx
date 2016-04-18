@@ -19,6 +19,8 @@ function composer(props, onData) {
 	}
 
 	deleteEntry = (_id) => {
+		if (!confirm("Are you sure you want to delete this post?")) return;
+		
 		Meteor.call('deleteGlossaryEntry', _id, (err, data) => {
 			err ? console.log(err) : console.log(data);
 		});
