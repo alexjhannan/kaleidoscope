@@ -1,5 +1,52 @@
 import React from 'react';
 
+let CharacterDetails = React.createClass({
+  componentDidUpdate() {
+    //$("input").val('');
+  },
+  render() {
+    let char = this.props.char;
+
+    if (!char) {
+      return (<h3 className="center">Select a Character</h3>);
+    }
+
+    return (
+      <div>
+        <form onSubmit={this.props.updateCharacter.bind(null, char._id)}>
+          <div class="input-field">
+            <label for="name">{char.name}</label>
+            <input id="name" type="text" />
+          </div>
+
+          <div class="input-field">
+            <label for="element">{char.element}</label>
+            <input id="element" type="text" />
+          </div>
+
+          <div class="input-field">
+            <label for="expertise">{char.expertise}</label>
+            <input id="expertise" type="text" />
+          </div>
+
+          <div class="input-field">
+            <label for="avatar">{char.avatar}</label>
+            <input id="avatar" type="text" />
+          </div>
+
+          <button onClick={this.props.deleteCharacter.bind(null, char._id)} className="waves-effect waves-light btn red left" name="delete">
+            delete <i className="material-icons">delete</i>
+          </button>
+
+          <button type="submit" className="waves-effect waves-light btn right" name="action">
+            save <i className="material-icons">done</i>
+          </button>
+        </form>
+      </div>
+    )
+  }
+});
+
 export default CharacterBoard = React.createClass({
 	componentDidMount() {
 		$(document).ready(function(){
@@ -15,10 +62,21 @@ export default CharacterBoard = React.createClass({
       dist: -50
     });
   },
+  getInitialState() {
+    return {
+      active: null
+    };
+  },
 	render() {
+
+    let setSelected = (char) => {
+      return this.setState({selected: char});
+    }
+
+
     let renderCarousel = () => {
       return this.props.characters.map((char) => (
-            <a className="carousel-item" key={char._id}>
+            <a onClick={setSelected.bind(null, char)} className="carousel-item" key={char._id}>
               <img src={char.avatar} alt="Avatar" />
             </a>
       ));
@@ -34,51 +92,7 @@ export default CharacterBoard = React.createClass({
           <button onClick={this.props.createNewCharacter} className="waves-effect waves-light btn">New</button>
         </div>
 
-        <div className="row">
-          <div className="col l4 center">
-            <h5>Characteristics</h5>
-
-            <div className="row">
-              <form className="col s12">
-                <div className="row">
-
-                  <div className="input-field col s12">
-                    <input id="name" type="text" />
-                    <label for="name">Name</label>
-                  </div>
-
-                  <div className="input-field col s12">
-                    <input id="element" type="text" />
-                    <label for="element">Element</label>
-                  </div>
-
-                  <div className="input-field col s12">
-                    <input id="element" type="text" />
-                    <label for="element">Expertise</label>
-                  </div>
-
-                </div>
-              </form>
-            </div>
-
-          </div>
-          <div className="col l4 center">
-            <h5>Patterns</h5>
-            <ul className="collection">
-              <li className="collection-item">Eats Lots of Shoes</li>
-              <li className="collection-item">Night Sweats</li>
-              <li className="collection-item">Great in Bed</li>
-            </ul>
-          </div>
-          <div className="col l4 center">
-            <h5>Stories</h5>
-            <ul className="collection">
-              <li className="collection-item">Yesterday, My Dog Got Out</li>
-              <li className="collection-item">Really Did Well</li>
-              <li className="collection-item">Made Awesome Breakfast</li>
-            </ul>
-          </div>
-        </div>
+        <CharacterDetails char={this.state.selected} updateCharacter={this.props.updateCharacter} deleteCharacter={this.props.deleteCharacter} />
 
       </div>
 		)

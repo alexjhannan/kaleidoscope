@@ -18,8 +18,8 @@ Meteor.methods({
       energies: 'TBA'
     });
   },
-  editCharacter(char) {
-    return Characters.update(char._id, char);
+  updateCharacter(_id, update) {
+    return Characters.update(_id, {$set: update});
   },
 
   // methods for glossary

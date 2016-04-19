@@ -11,8 +11,23 @@ function composer(props, onData) {
 		});
 	}
 
-	let editCharacter = (char) => {
-		Meteor.call('updateCharacter', char, (err, data) => {
+	let updateCharacter = (_id, e) => {
+		e.preventDefault();
+
+		let update = {};
+
+		update.name = e.target.name.value;
+		update.element = e.target.element.value;
+		update.expertise = e.target.expertise.value;
+		update.avatar = e.target.avatar.value;
+
+		Meteor.call('updateCharacter', _id, update, (err, data) => {
+			err ? console.log(err) : console.log(data);
+		});
+	}
+
+	let deleteCharacter = (_id) => {
+		Meteor.call('deleteCharacter', _id, (err, data) => {
 			err ? console.log(err) : console.log(data);
 		});
 	}
@@ -20,7 +35,7 @@ function composer(props, onData) {
 	const handle = Meteor.subscribe('characters');
 	if(handle.ready()) {
 		const characters = Characters.find({}, {sort: {_id: 1}}).fetch();
-		onData(null, {characters, createNewCharacter, editCharacter});
+		onData(null, {characters, createNewCharacter, updateCharacter, deleteCharacter});
 	};
 };
 
