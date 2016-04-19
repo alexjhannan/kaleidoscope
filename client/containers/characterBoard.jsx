@@ -16,10 +16,10 @@ function composer(props, onData) {
 
 		let update = {};
 
-		update.name = e.target.name.value;
-		update.element = e.target.element.value;
-		update.expertise = e.target.expertise.value;
-		update.avatar = e.target.avatar.value;
+		if (e.target.name.value) update.name = e.target.name.value;
+		if (e.target.element.value) update.element = e.target.element.value;
+		if (e.target.expertise.value) update.expertise = e.target.expertise.value;
+		if (e.target.avatar.value) update.avatar = e.target.avatar.value;
 
 		Meteor.call('updateCharacter', _id, update, (err, data) => {
 			err ? console.log(err) : console.log(data);

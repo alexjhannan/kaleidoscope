@@ -2,7 +2,7 @@ import React from 'react';
 
 let CharacterDetails = React.createClass({
   componentDidUpdate() {
-    //$("input").val('');
+    $("input").val('');
   },
   render() {
     let char = this.props.char;
@@ -34,12 +34,12 @@ let CharacterDetails = React.createClass({
             <input id="avatar" type="text" />
           </div>
 
-          <button onClick={this.props.deleteCharacter.bind(null, char._id)} className="waves-effect waves-light btn red left" name="delete">
-            delete <i className="material-icons">delete</i>
-          </button>
+          <a onClick={this.props.deleteCharacter.bind(null, char._id)} className="waves-effect waves-light btn red left" name="delete">
+            delete
+          </a>
 
           <button type="submit" className="waves-effect waves-light btn right" name="action">
-            save <i className="material-icons">done</i>
+            save
           </button>
         </form>
       </div>
@@ -89,7 +89,7 @@ export default CharacterBoard = React.createClass({
 				</div>
 
         <div className="center">
-          <button onClick={this.props.createNewCharacter} className="waves-effect waves-light btn">New</button>
+          <a onClick={this.props.createNewCharacter} className="waves-effect waves-light btn">New</a>
         </div>
 
         <CharacterDetails char={this.state.selected} updateCharacter={this.props.updateCharacter} deleteCharacter={this.props.deleteCharacter} />
