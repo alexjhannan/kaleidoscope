@@ -5,7 +5,7 @@ import {Meteor} from 'meteor/meteor';
 import {GlossaryEntries} from '/lib/collections.jsx';
 
 function composer(props, onData) {
-	editEntry = (_id, e) => {
+	let editEntry = (_id, e) => {
 		e.preventDefault();
 		let description = e.target.description.value;
 		

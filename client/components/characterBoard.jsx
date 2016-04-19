@@ -8,16 +8,31 @@ export default CharacterBoard = React.createClass({
       });
     });
 	},
+  componentDidUpdate() {
+    $('.initialized').removeClass('initialized');
+
+    $('.carousel').carousel({
+      dist: -50
+    });
+  },
 	render() {
+    let renderCarousel = () => {
+      return this.props.characters.map((char) => (
+            <a className="carousel-item" key={char._id}>
+              <img src={char.avatar} alt="Avatar" />
+            </a>
+      ));
+    }
+
 		return (
 			<div>
 				<div className="carousel" style={styles.carousel}>
-					<a className="carousel-item" href="#one!"><img src="http://lorempixel.com/250/250/nature/1" /></a>
-					<a className="carousel-item" href="#two!"><img src="http://lorempixel.com/250/250/nature/2" /></a>
-					<a className="carousel-item" href="#three!"><img src="http://lorempixel.com/250/250/nature/3" /></a>
-					<a className="carousel-item" href="#four!"><img src="http://lorempixel.com/250/250/nature/4" /></a>
-					<a className="carousel-item" href="#five!"><img src="http://lorempixel.com/250/250/nature/5" /></a>
+          {renderCarousel()}
 				</div>
+
+        <div className="center">
+          <button onClick={this.props.createNewCharacter} className="waves-effect waves-light btn">New</button>
+        </div>
 
         <div className="row">
           <div className="col l4 center">

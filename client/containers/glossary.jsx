@@ -6,7 +6,7 @@ import {Meteor} from 'meteor/meteor';
 import {GlossaryEntries} from '/lib/collections.jsx';
 
 function composer(props, onData) {
-	submitEntry = (e) => {
+	let submitEntry = (e) => {
 		e.preventDefault();
 
 		let post = {}
@@ -18,9 +18,9 @@ function composer(props, onData) {
 		});
 	}
 
-	deleteEntry = (_id) => {
+	let deleteEntry = (_id) => {
 		if (!confirm("Are you sure you want to delete this post?")) return;
-		
+
 		Meteor.call('deleteGlossaryEntry', _id, (err, data) => {
 			err ? console.log(err) : console.log(data);
 		});
