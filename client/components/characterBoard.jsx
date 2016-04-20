@@ -1,99 +1,53 @@
 import React from 'react';
 
-let CharacterDetails = React.createClass({
-  componentDidUpdate() {
-    $("input").val('');
-  },
-  render() {
-    let char = this.props.char;
-
-    if (!char) {
-      return (<h3 className="center">Select a Character</h3>);
-    }
-
-    return (
-      <div>
-        <form onSubmit={this.props.updateCharacter.bind(null, char._id)}>
-          <div class="input-field">
-            <label for="name">{char.name}</label>
-            <input id="name" type="text" />
-          </div>
-
-          <div class="input-field">
-            <label for="element">{char.element}</label>
-            <input id="element" type="text" />
-          </div>
-
-          <div class="input-field">
-            <label for="expertise">{char.expertise}</label>
-            <input id="expertise" type="text" />
-          </div>
-
-          <div class="input-field">
-            <label for="avatar">{char.avatar}</label>
-            <input id="avatar" type="text" />
-          </div>
-
-          <a onClick={this.props.deleteCharacter.bind(null, char._id)} className="waves-effect waves-light btn red left" name="delete">
-            delete
-          </a>
-
-          <button type="submit" className="waves-effect waves-light btn right" name="action">
-            save
-          </button>
-        </form>
-      </div>
-    )
-  }
-});
-
 export default CharacterBoard = React.createClass({
-	componentDidMount() {
-		$(document).ready(function(){
-			$('.carousel').carousel({
-        dist: -50
-      });
-    });
-	},
-  componentDidUpdate() {
-    $('.initialized').removeClass('initialized');
-
-    $('.carousel').carousel({
-      dist: -50
-    });
-  },
   getInitialState() {
     return {
-      active: null
+      selection: 0,
+      editMode: false
     };
   },
-	render() {
-
-    let setSelected = (char) => {
-      return this.setState({selected: char});
+  componentDidMount() {
+    this.positionEditButton();
+    window.addEventListener("resize", this.positionEditButton);
+  },
+  positionEditButton() {
+    let findLeftMargin = () => {
+      return $("#mainCard").width() - 38 + 'px';
     }
 
+    $("#editButton").css('marginLeft', findLeftMargin());
+  },
+	render() {
+    let char = this.props.characters[this.state.selection];
 
-    let renderCarousel = () => {
-      return this.props.characters.map((char) => (
-            <a onClick={setSelected.bind(null, char)} className="carousel-item" key={char._id}>
-              <img src={char.avatar} alt="Avatar" />
-            </a>
-      ));
+    let fakeFxn = () => {
+      return console.log('yo');
     }
 
 		return (
-			<div>
-				<div className="carousel" style={styles.carousel}>
-          {renderCarousel()}
-				</div>
-
-        <div className="center">
-          <a onClick={this.props.createNewCharacter} className="waves-effect waves-light btn">New</a>
+			<div className="row">
+        <div className="col s4 center">
+          <a href="#"><img className="circle responsive-img z-depth-1" src={char.avatar} style={styles.testButton}/></a>
+          <a href="#"><img className="circle responsive-img z-depth-1" src={char.avatar} style={styles.testButton}/></a>
         </div>
 
-        <CharacterDetails char={this.state.selected} updateCharacter={this.props.updateCharacter} deleteCharacter={this.props.deleteCharacter} />
+        <div className="col s4">
+          <img className="responsive-img z-depth-2" src={char.avatar} />
+          <div className="card darken-1 center" id="mainCard">
+            <p>NAME</p>
+            <div className="divider"></div>
+            <p>ELEMENT</p>
+            <div className="divider"></div>
+            <p>TITLE</p>
+          </div>
+          <img src={char.avatar} onClick={fakeFxn} id="editButton" className="responsive-img" style={styles.editButton} />
+        </div>
 
+        <div className="col s4 center">
+          <a href="#"><img className="circle responsive-img z-depth-1" src={char.avatar} style={styles.testButton}/></a>
+          <a href="#"><img className="circle responsive-img z-depth-1" src={char.avatar} style={styles.testButton}/></a>
+        </div>
       </div>
 		)
 	}
@@ -101,8 +55,17 @@ export default CharacterBoard = React.createClass({
 
 let styles = {};
 
-styles.carousel = {
-  paddingTop: 0,
-  marginTop: 0,
-  marginBottom: 0
+styles.editButton = {
+  position: 'relative',
+  bottom: '48px',
+  cursor: 'pointer',
+  outline: 'none',
+  width: '32px',
+  height: '32px'
+}
+
+styles.testButton = {
+  width: '200px',
+  height: '200px',
+  marginTop: '50px'
 }
