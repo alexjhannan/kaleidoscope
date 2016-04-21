@@ -28,8 +28,8 @@ export default CharacterBoard = React.createClass({
 		return (
 			<div className="row">
         <div className="col s4 center">
-          <a href="#"><img className="circle responsive-img z-depth-1" src={char.avatar} style={styles.testButton}/></a>
-          <a href="#"><img className="circle responsive-img z-depth-1" src={char.avatar} style={styles.testButton}/></a>
+          <a href="#"><img className="circle responsive-img z-depth-1 characterBoard--placeholderLink" src={char.avatar} /></a>
+          <a href="#"><img className="circle responsive-img z-depth-1 characterBoard--placeholderLink" src={char.avatar} /></a>
         </div>
 
         <div className="col s4">
@@ -41,31 +41,14 @@ export default CharacterBoard = React.createClass({
             <div className="divider"></div>
             <p>TITLE</p>
           </div>
-          <img src={char.avatar} onClick={fakeFxn} id="editButton" className="responsive-img" style={styles.editButton} />
+          <img src={char.avatar} onClick={fakeFxn} id="editButton" className="responsive-img characterBoard--editButton" />
         </div>
 
         <div className="col s4 center">
-          <a href="#"><img className="circle responsive-img z-depth-1" src={char.avatar} style={styles.testButton}/></a>
-          <a href="#"><img className="circle responsive-img z-depth-1" src={char.avatar} style={styles.testButton}/></a>
+          <a href="#"><img className="circle responsive-img z-depth-1 characterBoard--placeholderLink" src={char.avatar} /></a>
+          <a href="#"><img className="circle responsive-img z-depth-1 characterBoard--placeholderLink" src={char.avatar} /></a>
         </div>
       </div>
 		)
 	}
 });
-
-let styles = {};
-
-styles.editButton = {
-  position: 'relative',
-  bottom: '48px',
-  cursor: 'pointer',
-  outline: 'none',
-  width: '32px',
-  height: '32px'
-}
-
-styles.testButton = {
-  width: '200px',
-  height: '200px',
-  marginTop: '50px'
-}

@@ -1,11 +1,11 @@
 @import "{poetic:materialize-scss}/sass/materialize.scss";
 
+// set up sticky footer
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
 }
-
 main {
 	flex: 1 0 auto;
 }
@@ -16,3 +16,8 @@ $kaleid-air: #E5CC50;
 $kaleid-fire: #E55050;
 $kaleid-earth: #5EA63A;
 $kaleid-water: #3AA6A6;
+
+// import modules
+@import "_characterBoard";
+@import "_glossary";
+@import "_glossaryEntry";

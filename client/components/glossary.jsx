@@ -1,16 +1,11 @@
 import React from 'react';
 
-let styles = {};
-styles.container = {
-  "minHeight": "400px"
-};
-
 export default Glossary = ({entries, submitEntry, deleteEntry}) => (
   <div>
     <h3 className="center">Glossary</h3>
 
-    <div style={styles.container}>
-      <ul className="collection" style={styles.collection}>
+    <div className="glossary--container">
+      <ul className="collection">
         {entries.sort((a, b) => {
             if (a.title > b.title) return 1
             else return -1

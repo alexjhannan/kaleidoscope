@@ -7,7 +7,7 @@ export default GlossaryEntry = ({entry, editEntry}) => (
 		<hr />
 		<form onSubmit={editEntry.bind(null, entry._id)}>
 		<div className="row">
-			<textarea defaultValue={entry.description || "No Description"} id="description" name="description" className="col s8 offset-s2 materialize-textarea" style={styles.textarea}></textarea>
+			<textarea defaultValue={entry.description || "No Description"} id="description" name="description" className="col s8 offset-s2 materialize-textarea glossaryEntry--textarea"></textarea>
 		</div>
 		<div className="row">
 			<a type="submit" name="action" className="btn waves-effect waves-light col offset-s9">
@@ -18,9 +18,3 @@ export default GlossaryEntry = ({entry, editEntry}) => (
 		<p className="right">{"Created On " + entry.createdAt || "No Creation Date"}</p>
 	</div>
 );
-
-let styles = {};
-
-styles.textarea = {
-	minHeight: "300px"
-}
