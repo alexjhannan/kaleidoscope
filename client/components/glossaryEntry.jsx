@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default GlossaryEntry = ({entry, editEntry}) => (
-	<div>
+	<div className="container">
 		<h3 className="center">Glossary Entry</h3>
 		<h5 className="center">{entry.title}</h5>
 		<hr />

@@ -6,7 +6,7 @@ export default MainLayout = ({navbar, content, footer}) => (
 		<header>
 			{navbar}
 		</header>
-		<main className="container">
+		<main>
 			{content}
 		</main>
 		<footer>

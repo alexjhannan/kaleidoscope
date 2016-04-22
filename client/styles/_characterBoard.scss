@@ -1,3 +1,8 @@
+.characterBoard--avatar {
+	width: 320px;
+	height: 240px;
+}
+
 .characterBoard--editButton {
 	position: relative;
 	bottom: 48px;
@@ -12,19 +17,3 @@
 	height: 200px;
 	margin-top: 50px;
 };
-
-
-.characterBoard--testButton {
-	background: #EF572E;
-	border-radius: 5px;
-	width: 280px;
-	height: 50px;
-	border: none;
-}
-
-.characterBoard--testButtonText {
-	font-family: AmericanTypewriter-Bold;
-	font-size: 14px;
-	color: #CCCCCC;
-	letter-spacing: 2.29px;
-}

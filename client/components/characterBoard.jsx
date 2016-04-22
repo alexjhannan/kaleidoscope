@@ -3,7 +3,7 @@ import React from 'react';
 export default CharacterBoard = React.createClass({
   getInitialState() {
     return {
-      selection: 0,
+      selection: 5,
       editMode: false
     };
   },
@@ -34,7 +34,7 @@ export default CharacterBoard = React.createClass({
         </div>
 
         <div className="col s4">
-          <img className="responsive-img z-depth-2" src={char.avatar} />
+          <img className="z-depth-2 characterBoard--avatar" src={char.avatar} />
           <div className="card darken-1 center" id="mainCard">
             <p>NAME</p>
             <div className="divider"></div>

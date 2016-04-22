@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default Glossary = ({entries, submitEntry, deleteEntry}) => (
-  <div>
+  <div className="container">
     <h3 className="center">Glossary</h3>
 
     <div className="glossary--container">
