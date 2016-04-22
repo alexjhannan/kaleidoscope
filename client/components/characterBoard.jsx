@@ -30,6 +30,7 @@ export default CharacterBoard = React.createClass({
         <div className="col s4 center">
           <a href="#"><img className="circle responsive-img z-depth-1 characterBoard--placeholderLink" src={char.avatar} /></a>
           <a href="#"><img className="circle responsive-img z-depth-1 characterBoard--placeholderLink" src={char.avatar} /></a>
+          <a href="#"><button className="characterBoard--testButton"><span className="characterBoard--testButtonText">LOGIN</span></button></a>
         </div>
 
         <div className="col s4">
