@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default CharacterBoard = React.createClass({
+  // LIFE CYCLE HOOKS
   getInitialState() {
     return {
       selected: 5,
@@ -11,10 +12,18 @@ export default CharacterBoard = React.createClass({
     if (this.state.editMode) {
       // set the selected element to the current character's element
       // TODO: remove toLowerCase by changing field on the character object
-      $('#selectElement').val(this.props.characters[this.state.selected].element.toLowerCase());
+      $('#element').val(this.props.characters[this.state.selected].element.toLowerCase());
 
       // initialize select button
       $('select').material_select();
+    }
+  },
+  // UI ACTIONS
+  addCharacter() {
+    let yes = confirm("Add a new character?");
+
+    if (yes) {
+      // TODO: container fxn that adds new character
     }
   },
   changeSelected(val) {
@@ -31,6 +40,33 @@ export default CharacterBoard = React.createClass({
       return this.setState({selected: index});
     }
   },
+  deleteCharacter() {
+    let yes = confirm("Are you sure you want to delete this character? This action cannot be undone.");
+
+    if (yes) {
+      // TODO: container fxn that deletes current character
+      // (may have to mess with the selected param when the character is deleted)
+    }
+  },
+  submitEditForm() {
+    let yes = confirm("Submit these changes?");
+
+    if (yes) {
+      let name = $("#name").val();
+      let element = $("#element").val();
+      let title = $("#title").val();
+
+      console.log(name, element, title);
+
+      // TODO: hook in a data container function to call a meteor update method with these values
+
+      return this.toggleEdit();
+    }
+  },
+  toggleEdit() {
+      return this.setState({editMode: !this.state.editMode});
+  },
+  // RENDER METHODS
   renderCharacterColumn() {
     let char = this.props.characters[this.state.selected];
 
@@ -38,8 +74,9 @@ export default CharacterBoard = React.createClass({
       return console.log('yo');
     }
 
-    let toggleEdit = () => {
-      return this.setState({editMode: !this.state.editMode});
+    let fakeSubmit = (e) => {
+      e.preventDefault();
+      console.log('woo');
     }
 
     if (!this.state.editMode) {
@@ -57,8 +94,14 @@ export default CharacterBoard = React.createClass({
           <hr />
           <img src={"/icons/" + char.element.toLowerCase() + ".svg"} className="characterBoard--plateSymbol" />
           <h4>{char.expertise}</h4>
-          <img src={"/icons/add.svg"} onClick={fakeFxn} className="characterBoard--plateButton1" />
-          <img src={"/icons/edit.svg"} onClick={toggleEdit} className="characterBoard--plateButton2" />
+          <div className="row">
+            <div className="col s6 left-align">
+              <img src={"/icons/add.svg"} onClick={this.addCharacter} className="characterBoard--plateButton" />
+            </div>
+            <div className="col s6 right-align">
+              <img src={"/icons/edit.svg"} onClick={this.toggleEdit} className="characterBoard--plateButton" />
+            </div>
+          </div>
         </div>
       </div>)
     } else {
@@ -74,29 +117,38 @@ export default CharacterBoard = React.createClass({
             <img src={"/icons/arrowRight.svg"} className="z-depth-1 characterBoard--arrowRight faded" id="arrowRight" />
           </span>
           <hr />
-            <form id="editForm" onSubmit={fakeFxn}>
-              <div className="row">
-                <div className="input-field col s12">
-                  <input defaultValue={char.name} id="last_name" type="text" className="validate" />
-                  <label className="active" for="last_name">Name</label>
-                </div>
-                <div className="input-field col s12">
-                  <select id="selectElement">
-                    <option value="air">Air</option>
-                    <option value="fire">Fire</option>
-                    <option value="earth">Earth</option>
-                    <option value="water">Water</option>
-                  </select>
-                  <label for="element-select">Element</label>
-                </div>
-                <div className="input-field col s12">
-                  <input defaultValue={char.expertise} id="last_name" type="text" className="validate" />
-                  <label className="active" for="last_name">Title</label>
-                </div>
+          <form id="editForm">
+            <div className="row">
+              <div className="input-field col s12">
+                <input defaultValue={char.name} id="name" type="text" className="validate" />
+                <label className="active" for="name">Name</label>
               </div>
-            </form>
-          <img src={"/icons/cancel.svg"} onClick={fakeFxn} className="characterBoard--plateButton1" />
-          <img src={"/icons/done.svg"} onClick={toggleEdit} className="characterBoard--plateButton2" />
+              <div className="input-field col s12">
+                <select id="element">
+                  <option value="air">Air</option>
+                  <option value="fire">Fire</option>
+                  <option value="earth">Earth</option>
+                  <option value="water">Water</option>
+                </select>
+                <label for="element-select">Element</label>
+              </div>
+              <div className="input-field col s12">
+                <input defaultValue={char.expertise} id="title" type="text" className="validate" />
+                <label className="active" for="title">Title</label>
+              </div>
+            </div>
+          </form>
+          <div className="row">
+            <div className="col s4 left-align">
+              <img src={"/icons/cancel.svg"} onClick={this.toggleEdit} className="characterBoard--plateButton" />
+            </div>
+            <div className="col s4 center">
+              <img src={"/icons/trash.svg"} onClick={this.deleteCharacter} className="characterBoard--plateButton" />
+            </div>
+            <div className="col s4 right-align">
+              <img src={"/icons/done.svg"} onClick={this.submitEditForm} className="characterBoard--plateButton" />
+            </div>
+          </div>
         </div>
       </div>)
     }
