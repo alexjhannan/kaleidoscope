@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.1 (28215) - http://www.bohemiancoding.com/sketch -->
+    <title>edit</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.77">
+        <g id="edit" fill="#523D66">
+            <g id="Edit-Icon" transform="translate(128.380529, 132.369612) rotate(-59.000000) translate(-128.380529, -132.369612) translate(3.380529, 100.869612)">
+                <path d="M53.9809506,62.707444 L208.570412,62.707444 L208.570412,-4.8316906e-13 L53.7883089,-4.8316906e-13 L2.27193264e-13,31.0546947 L2.27373675e-13,31.5415277 L53.9809506,62.707444 Z" id="Combined-Shape"></path>
+                <path d="M218.112849,1.42108547e-13 L239.475685,1.42108547e-13 C244.993499,1.42108547e-13 249.466571,4.48459935 249.466571,10.0055197 L249.466571,52.7019243 C249.466571,58.2278203 244.995606,62.707444 239.475685,62.707444 L218.112849,62.707444 L218.112849,1.41442413e-13 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
