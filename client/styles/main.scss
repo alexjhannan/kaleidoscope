@@ -1,5 +1,3 @@
-@import "{poetic:materialize-scss}/sass/materialize.scss";
-
 // set up sticky footer
 body {
     display: flex;
@@ -16,6 +14,16 @@ $kaleid-air: #E5CC50;
 $kaleid-fire: #E55050;
 $kaleid-earth: #5EA63A;
 $kaleid-water: #3AA6A6;
+
+// materialize setup
+@import "{poetic:materialize-scss}/sass/components/_color.scss";
+
+// set default colors for materialize ui
+$primary-color: $kaleid-main;
+$secondary-color: $kaleid-main;
+$link-color: $kaleid-main;
+
+@import "{poetic:materialize-scss}/sass/materialize.scss";
 
 // import modules
 @import "_characterBoard";
