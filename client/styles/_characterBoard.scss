@@ -1,21 +1,125 @@
 .characterBoard--avatar {
-	margin-top: 35px;
-	width: 320px;
-	height: 240px;
+	margin: 35px 0;
+	width: 100%;
+	height: auto;
 	border-radius: 20px;
 }
 
-.characterBoard--editButton {
-	position: relative;
-	bottom: 48px;
-	cursor: pointer;
-	outline: none;
-	width: 32px;
-	height: 32px;
-};
+.characterBoard--characterPlate {
+	/* Box: */
+	background: rgba(82,61,102,0.05);
+	border: 1px solid #7A6F82;
+	width: 100%;
+	border-radius: 20px;
 
-.characterBoard--placeholderLink {
-	width: 200px;
-	height: 200px;
-	margin-top: 50px;
-};
+	h3 {
+		font-family: AmericanTypewriter;
+		font-weight: 500;
+		font-size: 20px;
+		color: #000000;
+		letter-spacing: 0.57px;
+		max-width: 70%;
+		display: inline;
+	}
+
+	hr {
+		border: 1px solid #7A6F82;
+		width: 80%;
+		margin-top: 15px;
+	}
+
+	h4 {
+		font-family: Roboto;
+		font-weight: 300;
+		font-size: 20px;
+		color: #000000;
+		letter-spacing: 0.57px;
+		margin-top: 0;
+		margin-bottom: 0px;
+	}
+
+	form {
+		width: 80%;
+		margin: 0 auto;
+		&:last-of-type {
+			margin-bottom: 20px;
+		}
+	}
+}
+
+.characterBoard--arrowLeft {
+	margin-right: 20px;
+	position: relative;
+	top: 10px;
+	cursor: pointer;
+	&.faded {
+		opacity: .5;
+		cursor: default;
+	}
+}
+
+.characterBoard--arrowRight {
+	@extend .characterBoard--arrowLeft;
+	margin-right: 0;
+	margin-left: 20px;
+}
+
+.characterBoard--plateSymbol {
+	width: 25%;
+	height: auto;
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+
+.characterBoard--plateButton1 {
+	width: 25;
+	height: 25px;
+	cursor: pointer;
+	position: relative;
+	left: -40%;
+}
+
+.characterBoard--plateButton2 {
+	@extend .characterBoard--plateButton1;
+	left: 40%;
+}
+
+.characterBoard--majorButton {
+	border: 1px solid #523D66;
+	box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.50);
+	border-radius: 20px;
+	margin-top: 75px;
+
+	h3 {
+		font-family: AmericanTypewriter;
+		font-size: 24px;
+		color: #FFFFFF;
+		letter-spacing: 1.33px;
+	}
+
+	h4 {
+		font-family: Roboto-LightItalic;
+		font-size: 14px;
+		color: #FFFFFF;
+		letter-spacing: 1px;
+		line-height: 15px;
+		padding: 0;
+		margin: 40px;
+	}
+}
+
+.waves-effect.waves-air {
+	background-color: #E7CE50;
+}
+
+.waves-effect.waves-fire {
+	background-color: #E55050;
+}
+
+.waves-effect.waves-earth {
+	background-color: #5EA739;
+}
+
+.waves-effect.waves-water {
+	background-color: #3CA6A7;
+}
