@@ -4,7 +4,7 @@ export default CharacterBoard = React.createClass({
   // LIFE CYCLE HOOKS
   getInitialState() {
     return {
-      selected: 5,
+      selected: 0,
       editMode: false
     };
   },
@@ -19,15 +19,6 @@ export default CharacterBoard = React.createClass({
     }
   },
   // UI ACTIONS
-  confirmAdd() {
-    let url = prompt("Enter an avatar for your character. (for development only)");
-
-    if (yes) {
-      // TODO: container fxn that adds new character
-
-      this.props.addCharacter(url);
-    }
-  },
   changeSelected(val) {
     // allows user to change UI selected state, should receive either +1 or -1
     let index = this.state.selected + val;
@@ -42,6 +33,22 @@ export default CharacterBoard = React.createClass({
       return this.setState({selected: index});
     }
   },
+  confirmAdd() {
+    let url = prompt("Enter an avatar for your character. (for development only)"),
+      name = "bob",
+      element = "fire",
+      title = "the rossiest";
+
+    if (url) {
+      // TODO: container fxn that adds new character
+
+      let attributes = {avatar: url};
+
+      this.props.insertCharacter(attributes);
+
+      this.setState({selected: this.props.characters.length -1 });
+    }
+  },
   confirmDelete(_id) {
     let yes = confirm("Are you sure you want to delete this character? This action cannot be undone.");
 
@@ -49,9 +56,11 @@ export default CharacterBoard = React.createClass({
       // TODO: container fxn that deletes current character
       // (may have to mess with the selected param when the character is deleted)
       this.props.deleteCharacter(_id);
+
+      this.setState({selected: this.state.selected - 1, editMode: false});
     }
   },
-  confirmSubmit() {
+  confirmSubmit(_id) {
     let yes = confirm("Submit these changes?");
 
     if (yes) {
@@ -59,11 +68,11 @@ export default CharacterBoard = React.createClass({
       let element = $("#element").val();
       let title = $("#title").val();
 
-      console.log(name, element, title);
+      let update = {name, element, title};
 
       // TODO: hook in a data container function to call a meteor update method with these values
 
-      this.props.submitEditForm(name, element, title);
+      this.props.updateCharacter(_id, update);
 
       return this.toggleEdit();
     }
@@ -75,14 +84,7 @@ export default CharacterBoard = React.createClass({
   renderCharacterColumn() {
     let char = this.props.characters[this.state.selected];
 
-    let fakeFxn = () => {
-      return console.log('yo');
-    }
-
-    let fakeSubmit = (e) => {
-      e.preventDefault();
-      console.log('woo');
-    }
+    console.log(char);
 
     if (!this.state.editMode) {
       // standard character column
@@ -97,8 +99,8 @@ export default CharacterBoard = React.createClass({
             <img src={"/icons/arrowRight.svg"} onClick={this.changeSelected.bind(null, 1)} className="z-depth-1 characterBoard--arrowRight" id="arrowRight" />
           </span>
           <hr />
-          <img src={"/icons/" + char.element.toLowerCase() + ".svg"} className="characterBoard--plateSymbol" />
-          <h4>{char.expertise}</h4>
+          <img src={"/icons/" + char.element + ".svg"} className="characterBoard--plateSymbol" />
+          <h4>{char.title}</h4>
           <div className="row">
             <div className="col s6 left-align">
               <img src={"/icons/add.svg"} onClick={this.confirmAdd} className="characterBoard--plateButton" />
@@ -138,7 +140,7 @@ export default CharacterBoard = React.createClass({
                 <label for="element-select">Element</label>
               </div>
               <div className="input-field col s12">
-                <input defaultValue={char.expertise} id="title" type="text" className="validate" />
+                <input defaultValue={char.title} id="title" type="text" className="validate" />
                 <label className="active" for="title">Title</label>
               </div>
             </div>
@@ -151,7 +153,7 @@ export default CharacterBoard = React.createClass({
               <img src={"/icons/trash.svg"} onClick={this.confirmDelete.bind(null, char._id)} className="characterBoard--plateButton" />
             </div>
             <div className="col s4 right-align">
-              <img src={"/icons/done.svg"} onClick={this.confirmSubmit} className="characterBoard--plateButton" />
+              <img src={"/icons/done.svg"} onClick={this.confirmSubmit.bind(null, char._id)} className="characterBoard--plateButton" />
             </div>
           </div>
         </div>
