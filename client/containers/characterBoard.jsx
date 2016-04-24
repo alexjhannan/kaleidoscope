@@ -5,22 +5,16 @@ import {Meteor} from 'meteor/meteor';
 import {Characters} from '/lib/collections.jsx';
 
 function composer(props, onData) {
-	let createNewCharacter = () => {
-		Meteor.call('createNewCharacter', (err, data) => {
+	let insertCharacter = (attributes) => {
+		attributes.name = "Bob";
+		attributes.element="air";
+		attributes.title="The Rossiest";
+		Meteor.call('insertCharacter', attributes, (err, data) => {
 			err ? console.log(err) : console.log(data);
 		});
 	}
 
-	let updateCharacter = (_id, e) => {
-		e.preventDefault();
-
-		let update = {};
-
-		if (e.target.name.value) update.name = e.target.name.value;
-		if (e.target.element.value) update.element = e.target.element.value;
-		if (e.target.expertise.value) update.expertise = e.target.expertise.value;
-		if (e.target.avatar.value) update.avatar = e.target.avatar.value;
-
+	let updateCharacter = (_id, update) => {
 		Meteor.call('updateCharacter', _id, update, (err, data) => {
 			err ? console.log(err) : console.log(data);
 		});
@@ -35,7 +29,7 @@ function composer(props, onData) {
 	const handle = Meteor.subscribe('characters');
 	if(handle.ready()) {
 		const characters = Characters.find({}, {sort: {_id: 1}}).fetch();
-		onData(null, {characters, createNewCharacter, updateCharacter, deleteCharacter});
+		onData(null, {characters, insertCharacter, updateCharacter, deleteCharacter});
 	};
 };
 
