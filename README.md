@@ -16,17 +16,8 @@
 
 * Views -> Files that combine multiple components together
 ** To be used for complicated pages where multiple reusable components are all in use
------------------------------------------------------------------------------------------------------
-* The line between container and component when working with cross-end functionality:
-** Components are the front-facing portion of the client that renders a display, while containers are the back-facing portion concerned with data and processes. The line between these two can become blurred when complicated functionality is required.
-** For example, take the case of a client action to delete an object. Since this type of request is not reversible, any reasonably significant object that can be deleted should request confirmation before it actually deletes itself, just as a seamless accidental precaution. But this creates a split concern: the client needs to ask the user for information by displaying information, and then also manipulate the data if they confirm.
-** To maintain the separation of concerns, then, this method is effective, and used in this application:
-*** Create a UI function on the component that handles the front-facing concern (displaying the confirmation) and then conditionally invokes a function located on the component's properties.
-*** Create a data function on the container that handles the back-facing concern (deleting the object). Pipe this function to the component when rendering it with the container.
-** This approach doubles the number of functions for an action such as this, but it also maintains the front-end being where the front-end should be - in the component, not the container.
 
 -----------------------------------------------------------------------------------------------------
-
 
 * Routes/routes.jsx -> Defines routes using FlowRouter
 ** Can be made modular up if the routing becomes too intense for one file
@@ -40,3 +31,17 @@
 * Methods -> Calls to the Meteor API for data access, retrieval, manipulation
 
 * Publications -> Collections that are available for the client to use
+
+
+-----------------------------------------------------------------------------------------------------
+
+* Practices in this application:
+** When dealing with functionality that combines data and display concerns:
+*** Create a UI function on the component that handles the front-facing concern (displaying the confirmation) and then conditionally invokes a function located on the component's properties.
+*** Create a data function on the container that handles the back-facing concern (deleting the object). Pipe this function to the component when rendering it with the container.
+*** This approach doubles the number of functions for an action such as this, but it also maintains the front-end being where the front-end should be - in the component, not the container.
+
+-----------------------------------------------------------------------------------------------------
+
+* Semantics:
+** Components and JSX tends to be written with a loose semantic interpretation of things, so as to provide fluidity and flexibility to deal with a great variety of concerns. Containers and methods are written specifically with MongoDB in mind, so as to reference as best possible the actual methods being called in the database.
