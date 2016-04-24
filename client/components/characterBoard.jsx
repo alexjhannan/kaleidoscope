@@ -19,11 +19,13 @@ export default CharacterBoard = React.createClass({
     }
   },
   // UI ACTIONS
-  addCharacter() {
-    let yes = confirm("Add a new character?");
+  confirmAdd() {
+    let url = prompt("Enter an avatar for your character. (for development only)");
 
     if (yes) {
       // TODO: container fxn that adds new character
+
+      this.props.addCharacter(url);
     }
   },
   changeSelected(val) {
@@ -40,15 +42,16 @@ export default CharacterBoard = React.createClass({
       return this.setState({selected: index});
     }
   },
-  deleteCharacter() {
+  confirmDelete(_id) {
     let yes = confirm("Are you sure you want to delete this character? This action cannot be undone.");
 
     if (yes) {
       // TODO: container fxn that deletes current character
       // (may have to mess with the selected param when the character is deleted)
+      this.props.deleteCharacter(_id);
     }
   },
-  submitEditForm() {
+  confirmSubmit() {
     let yes = confirm("Submit these changes?");
 
     if (yes) {
@@ -59,6 +62,8 @@ export default CharacterBoard = React.createClass({
       console.log(name, element, title);
 
       // TODO: hook in a data container function to call a meteor update method with these values
+
+      this.props.submitEditForm(name, element, title);
 
       return this.toggleEdit();
     }
@@ -96,7 +101,7 @@ export default CharacterBoard = React.createClass({
           <h4>{char.expertise}</h4>
           <div className="row">
             <div className="col s6 left-align">
-              <img src={"/icons/add.svg"} onClick={this.addCharacter} className="characterBoard--plateButton" />
+              <img src={"/icons/add.svg"} onClick={this.confirmAdd} className="characterBoard--plateButton" />
             </div>
             <div className="col s6 right-align">
               <img src={"/icons/edit.svg"} onClick={this.toggleEdit} className="characterBoard--plateButton" />
@@ -143,10 +148,10 @@ export default CharacterBoard = React.createClass({
               <img src={"/icons/cancel.svg"} onClick={this.toggleEdit} className="characterBoard--plateButton" />
             </div>
             <div className="col s4 center">
-              <img src={"/icons/trash.svg"} onClick={this.deleteCharacter} className="characterBoard--plateButton" />
+              <img src={"/icons/trash.svg"} onClick={this.confirmDelete.bind(null, char._id)} className="characterBoard--plateButton" />
             </div>
             <div className="col s4 right-align">
-              <img src={"/icons/done.svg"} onClick={this.submitEditForm} className="characterBoard--plateButton" />
+              <img src={"/icons/done.svg"} onClick={this.confirmSubmit} className="characterBoard--plateButton" />
             </div>
           </div>
         </div>
