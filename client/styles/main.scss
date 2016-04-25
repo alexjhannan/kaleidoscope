@@ -15,6 +15,20 @@ $kaleid-fire: #E55050;
 $kaleid-earth: #5EA63A;
 $kaleid-water: #3AA6A6;
 
+// text classes:
+.air-text {
+	color: $kaleid-air;
+}
+.fire-text {
+	color: $kaleid-fire;
+}
+.earth-text {
+	color: $kaleid-earth;
+}
+.water-text {
+	color: $kaleid-water;
+}
+
 // materialize setup
 @import "{poetic:materialize-scss}/sass/components/_color.scss";
 
@@ -26,7 +40,8 @@ $link-color: $kaleid-main;
 @import "{poetic:materialize-scss}/sass/materialize.scss";
 
 // import modules
-@import "_characterBoard";
-@import "_glossary";
-@import "_glossaryEntry";
-@import "_navbar";
+@import "characterBoard";
+@import "glossary";
+@import "glossaryEntry";
+@import "navbar";
+@import "intro";

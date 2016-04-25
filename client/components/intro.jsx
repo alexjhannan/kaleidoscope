@@ -21,9 +21,9 @@ export default Content = ({name}) => (
     <div className="row">
       <div className="col s12 m3">
         <div className="icon-block">
-          <div className="center yellow-text">
-            <i className="material-icons">call_merge</i>
-            <h5 className="center">Air</h5>
+          <div className="center">
+            <img className="intro--elementSymbol" src={"/icons/air.svg"} />
+            <h5 className="center air-text">Air</h5>
           </div>
         </div>
           
@@ -37,9 +37,9 @@ export default Content = ({name}) => (
 
       <div className="col s12 m3">
         <div className="icon-block">
-          <div className="center red-text">
-            <i className="material-icons">navigation</i>
-            <h5 className="center">Fire</h5>
+          <div className="center">
+            <img className="intro--elementSymbol" src={"/icons/fire.svg"} />
+            <h5 className="center fire-text">Fire</h5>
           </div>
         </div>
 
@@ -52,9 +52,9 @@ export default Content = ({name}) => (
 
       <div className="col s12 m3">
         <div className="icon-block">
-          <div className="center green-text">
-            <i className="material-icons">view_stream</i>
-            <h5 className="center">Earth</h5>
+          <div className="center">
+            <img className="intro--elementSymbol" src={"/icons/earth.svg"} />
+            <h5 className="center earth-text">Earth</h5>
           </div>
         </div>
 
@@ -67,9 +67,9 @@ export default Content = ({name}) => (
 
       <div className="col s12 m3">
         <div className="icon-block">
-          <div className="center blue-text">
-            <i className="material-icons">invert_colors</i>
-            <h5 className="center">Water</h5>
+          <div className="center">
+            <img className="intro--elementSymbol" src={"/icons/water.svg"} />
+            <h5 className="center water-text">Water</h5>
           </div>
         </div>
 
