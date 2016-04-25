@@ -1,10 +1,12 @@
 // content - placeholder component for future views
 import React from 'react';
+import AccountsUIWrapper from '/client/components/accountsUIWrapper.jsx';
 
 export default Content = ({name}) => (
   <div>
   <div className="section no-pad-bot" id="index-banner">
     <div className="container">
+      <AccountsUIWrapper />
       <h1 className="header center grey-text">{name} Kaleidoscope</h1>
       <div className="row center">
         <h5 className="header col s12 light">User-Generated Psychological Dashboard</h5>

@@ -1,6 +1,8 @@
 // functional modules
 import React from 'react';
 import {mount} from 'react-mounter';
+// configuration
+import '/client/config/accounts-config.jsx';
 // layouts
 import MainLayout from '/client/layouts/mainLayout.jsx';
 // common use components
