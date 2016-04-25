@@ -44,9 +44,11 @@ export default CharacterBoard = React.createClass({
 
       let attributes = {avatar: url};
 
-      this.props.insertCharacter(attributes);
+      let cb = () => {
+        this.setState({selected: this.props.characters.length});
+      }
 
-      this.setState({selected: this.props.characters.length -1 });
+      this.props.insertCharacter(attributes, cb);
     }
   },
   confirmDelete(_id) {
@@ -57,18 +59,19 @@ export default CharacterBoard = React.createClass({
       // (may have to mess with the selected param when the character is deleted)
       this.props.deleteCharacter(_id);
 
-      this.setState({selected: this.state.selected - 1, editMode: false});
+      this.setState({selected: 0, editMode: false});
     }
   },
   confirmSubmit(_id) {
     let yes = confirm("Submit these changes?");
 
     if (yes) {
-      let name = $("#name").val();
-      let element = $("#element").val();
-      let title = $("#title").val();
+      let name = $("#editForm--name").val();
+      let element = $("#editForm--element").val();
+      let title = $("#editForm--title").val();
+      let avatar = $("#editForm--avatar").val();
 
-      let update = {name, element, title};
+      let update = {name, element, title, avatar};
 
       // TODO: hook in a data container function to call a meteor update method with these values
 
@@ -90,7 +93,7 @@ export default CharacterBoard = React.createClass({
       // standard character column
       return (<div>
         <div>
-          <img src={char.avatar} className="z-depth-2 characterBoard--avatar" id="avatar" />
+          <img src={char.avatar} className="z-depth-2 characterBoard--avatar" />
         </div>
         <div className="characterBoard--characterPlate z-depth-1">
           <span>
@@ -127,21 +130,25 @@ export default CharacterBoard = React.createClass({
           <form id="editForm">
             <div className="row">
               <div className="input-field col s12">
-                <input defaultValue={char.name} id="name" type="text" className="validate" />
-                <label className="active" for="name">Name</label>
+                <input defaultValue={char.avatar} id="editForm--avatar" type="text" className="validate" />
+                <label className="active" for="editForm--avatar">Picture</label>
               </div>
               <div className="input-field col s12">
-                <select id="element">
+                <input defaultValue={char.name} id="editForm--name" type="text" className="validate" />
+                <label className="active" for="editForm--name">Name</label>
+              </div>
+              <div className="input-field col s12">
+                <select id="editForm--element">
                   <option value="air">Air</option>
                   <option value="fire">Fire</option>
                   <option value="earth">Earth</option>
                   <option value="water">Water</option>
                 </select>
-                <label for="element-select">Element</label>
+                <label for="editForm--element">Element</label>
               </div>
               <div className="input-field col s12">
-                <input defaultValue={char.title} id="title" type="text" className="validate" />
-                <label className="active" for="title">Title</label>
+                <input defaultValue={char.title} id="editForm--title" type="text" className="validate" />
+                <label className="active" for="editForm--title">Title</label>
               </div>
             </div>
           </form>

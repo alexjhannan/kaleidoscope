@@ -5,12 +5,17 @@ import {Meteor} from 'meteor/meteor';
 import {Characters} from '/lib/collections.jsx';
 
 function composer(props, onData) {
-	let insertCharacter = (attributes) => {
+	let insertCharacter = (attributes, cb) => {
 		attributes.name = "Bob";
 		attributes.element="air";
 		attributes.title="The Rossiest";
 		Meteor.call('insertCharacter', attributes, (err, data) => {
-			err ? console.log(err) : console.log(data);
+			if (err) {
+				console.log(err);
+			} else {
+				console.log(data);
+				cb();
+			}
 		});
 	}
 
@@ -28,7 +33,7 @@ function composer(props, onData) {
 
 	const handle = Meteor.subscribe('characters');
 	if(handle.ready()) {
-		const characters = Characters.find({}, {sort: {_id: 1}}).fetch();
+		const characters = Characters.find({}, {sort: {createdAt: 1}}).fetch();
 		onData(null, {characters, insertCharacter, updateCharacter, deleteCharacter});
 	};
 };
