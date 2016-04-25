@@ -10,9 +10,9 @@ export default GlossaryEntry = ({entry, editEntry}) => (
 			<textarea defaultValue={entry.description || "No Description"} id="description" name="description" className="col s8 offset-s2 materialize-textarea glossaryEntry--textarea"></textarea>
 		</div>
 		<div className="row">
-			<a type="submit" name="action" className="btn waves-effect waves-light col offset-s9">
+			<button type="submit" name="action" className="btn waves-effect waves-light col offset-s9">
 				<i className="material-icons">done</i>
-			</a>
+			</button>
 		</div>
 		</form>
 		<p className="right">{"Created On " + entry.createdAt || "No Creation Date"}</p>
