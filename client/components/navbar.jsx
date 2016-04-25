@@ -9,7 +9,7 @@ export default Navbar = React.createClass({
       <nav className="navbar--nav small" role="navigation">
         <div className="nav-wrapper container">
 
-          <a href="/" className="brand-logo center"><img src={"/icons/kaleidoscope.svg"} className="navbar--kaleidoscope z-depth-3" alt="Navbar Logo" /></a>
+          <a href="/" className="brand-logo center"><img src={"/icons/kaleidoscope.svg"} className="navbar--kaleidoscope" alt="Navbar Logo" /></a>
 
           <ul className="left hide-on-med-and-down">
             <li><a href="/wiseman">Wiseman</a></li>

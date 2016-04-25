@@ -4,26 +4,16 @@
     <title>kaleidoscope</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="126" y="126" width="130" height="130"></rect>
-        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="130" height="130" fill="white">
+        <path d="M128,0 L236.007906,0 C247.049235,0 256,8.96105625 256,19.9920941 L256,128 L256,236.007906 C256,247.049235 247.038944,256 236.007906,256 L128,256 L19.9920941,256 C8.95076542,256 4.26325641e-14,247.038944 4.26325641e-14,236.007906 L4.26325641e-14,128 L4.26325641e-14,19.9920941 C4.26325641e-14,8.95076542 8.96105625,0 19.9920941,0 L128,0 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="256" height="256" fill="white">
             <use xlink:href="#path-1"></use>
-        </mask>
-        <rect id="path-3" x="126" y="0" width="130" height="130"></rect>
-        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="130" height="130" fill="white">
-            <use xlink:href="#path-3"></use>
-        </mask>
-        <rect id="path-5" x="0" y="126" width="130" height="130"></rect>
-        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="130" height="130" fill="white">
-            <use xlink:href="#path-5"></use>
-        </mask>
-        <rect id="path-7" x="0" y="0" width="130" height="130"></rect>
-        <mask id="mask-8" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="130" height="130" fill="white">
-            <use xlink:href="#path-7"></use>
         </mask>
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="kaleidoscope">
-            <rect id="Rectangle-39" fill-opacity="0.49" fill="#7A6A8A" x="0" y="0" width="256" height="256" rx="20"></rect>
+            <g id="Window-Pane" stroke="#7A6A8A" stroke-width="10" fill="#7A6A8A" fill-opacity="0.5">
+                <use id="Combined-Shape" mask="url(#mask-2)" xlink:href="#path-1"></use>
+            </g>
             <g id="Air-Sigil" transform="translate(65.500000, 64.500000) scale(-1, 1) translate(-65.500000, -64.500000) translate(11.000000, 13.000000)">
                 <path id="Path-5" stroke="#979797"></path>
                 <path d="M93.0964445,54.4005551 L98.0736579,56.2266373 L90.8101442,32.4687544 L89.0737552,32.9996218 C88.7018893,32.2754451 88.3036614,31.5592515 87.8787634,30.8521025 C76.7861922,12.3909638 51.7172743,7.08505711 31.8857682,19.0010282 C12.054262,30.9169992 4.96995554,55.5425123 16.0625268,74.003651 C18.2351663,77.6195303 20.9439783,80.7307374 24.0445922,83.3067159 C23.8586968,83.077432 23.6753953,82.8453332 23.4947474,82.6104321 C31.2038887,90.6751057 43.686075,92.6539997 53.6015147,86.6962024 C65.106816,79.78312 68.7994425,64.8019711 61.8492269,53.2348698 C58.9275814,48.3724352 54.5903319,44.8873182 49.6892624,42.9943176 C49.862899,43.1184931 50.0352951,43.2452038 50.2063905,43.3744307 C45.0866072,41.31084 39.4657713,41.442173 34.7975785,44.2471062 C33.7846448,44.8557382 32.8618003,45.5630709 32.0316993,46.3536956 C27.4210651,49.8368372 26.2545821,56.6096034 29.51482,62.0355505 C32.9866887,67.8137103 40.1639055,69.876453 45.5455824,66.6428153 C47.9416334,65.2031226 49.5777972,62.9562869 50.3493513,60.3964621 C49.4435572,61.8883293 48.161771,63.1972297 46.5459461,64.1681153 C41.4075124,67.2555977 34.8368209,65.7556252 31.869896,60.8178328 C28.902971,55.8800405 30.6633266,49.3742698 35.8017603,46.2867874 C37.7071351,45.1419227 39.8094438,44.6278282 41.8519208,44.6858888 C41.7357756,44.6508794 41.6192267,44.6176805 41.5023186,44.5863051 C47.6090594,44.9659419 53.7869657,48.6905096 57.5411233,54.9384771 C58.9420399,57.2699939 59.8742488,59.7345486 60.3609215,62.1976299 C60.8375397,69.9860303 57.5010986,77.4150228 50.941327,81.3565312 C41.1093406,87.2641847 27.7593375,83.1001207 21.1232606,72.055834 C18.7294086,68.0717952 17.5362339,63.7366733 17.4505257,59.5448845 C16.8522649,61.8673023 16.5944586,64.278663 16.6972268,66.6973392 C14.4284031,51.8616673 21.7291315,35.9694909 36.2301915,27.256375 C53.2636588,17.0216353 74.3790138,20.2091306 85.9883161,33.9429352 L79.6331395,35.8859077 L88.7368639,48.4922713 L84.3836625,49.8251654 L96.7004185,70.0110821 L93.0964445,54.4005551 Z" id="Combined-Shape" fill="#E5CC50" transform="translate(54.446661, 51.396588) rotate(20.000000) translate(-54.446661, -51.396588) "></path>
@@ -43,12 +33,6 @@
                 <ellipse id="Oval-11-Copy" stroke="#3AA6A6" stroke-width="3" cx="39.0686385" cy="38.2712618" rx="25.7030516" ry="25.1784617"></ellipse>
                 <ellipse id="Oval-11-Copy-2" stroke="#3AA6A6" stroke-width="3" cx="39.0686385" cy="38.2712618" rx="12.8515258" ry="12.5892308"></ellipse>
                 <ellipse id="Oval-11-Copy-3" fill="#3AA6A6" cx="39.0686385" cy="38.2712618" rx="2.57030516" ry="2.51784617"></ellipse>
-            </g>
-            <g id="Window-Pane" stroke="#7A6A8A" stroke-width="10">
-                <use id="Rectangle-35-Copy-2" mask="url(#mask-2)" xlink:href="#path-1"></use>
-                <use id="Rectangle-35-Copy-4" mask="url(#mask-4)" xlink:href="#path-3"></use>
-                <use id="Rectangle-35-Copy-3" mask="url(#mask-6)" xlink:href="#path-5"></use>
-                <use id="Rectangle-35-Copy-5" mask="url(#mask-8)" xlink:href="#path-7"></use>
             </g>
         </g>
     </g>
