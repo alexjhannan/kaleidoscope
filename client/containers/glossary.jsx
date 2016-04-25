@@ -11,11 +11,14 @@ function composer(props, onData) {
 
 		let post = {}
 		post.title = e.target.name.value;
-		post.createdAt = moment().format('MMM DD, YYYY');
 
-		Meteor.call('insertGlossaryEntry', post, (err, data) => {
-			err ? console.log(err) : console.log(data);
-		});
+		if (post.title !== "") {
+			post.createdAt = moment().format('MMM DD, YYYY');
+
+			Meteor.call('insertGlossaryEntry', post, (err, data) => {
+				err ? console.log(err) : console.log(data);
+			});
+		}
 	}
 
 	let deleteEntry = (_id) => {

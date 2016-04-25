@@ -19,8 +19,12 @@ export default Glossary = ({entries, submitEntry, deleteEntry}) => (
     </div>
 
     <form onSubmit={submitEntry}>
-      <input placeholder="Name" name="name" />
-      <input type="submit" />
+      <div className="row">
+        <button type="submit" name="action" className="btn waves-effect waves-light col s1">
+          <i className="material-icons">done</i>
+        </button>
+        <input placeholder="Name" name="name" className="col s10 offset-s1"/>
+      </div>
     </form>
   </div>
 );
