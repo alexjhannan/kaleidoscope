@@ -8,10 +8,7 @@ export default Glossary = ({currentUser, entries, submitEntry, deleteEntry}) => 
 
         <div className="glossary--container">
           <ul className="collection">
-            {entries.sort((a, b) => {
-                if (a.title > b.title) return 1
-                else return -1
-              }).map(({_id, title}) => (
+            {entries.map(({_id, title}) => (
               <li key={_id} className="collection-item">
                 <a href={"/glossaryEntry/" + _id}>{title}</a>
                 <a href="#" className="secondary-content" onClick={deleteEntry.bind(null, _id)}><i className="material-icons">delete</i></a>

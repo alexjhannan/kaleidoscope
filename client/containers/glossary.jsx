@@ -13,9 +13,11 @@ function composer(props, onData) {
 
 		let post = {}
 		post.title = e.target.name.value;
+		e.target.name.value = '';
 
 		if (post.title !== "") {
-			post.createdAt = moment().format('MMM DD, YYYY');
+			post.createdAt = new Date();
+			post.userId = currentUser;
 
 			Meteor.call('insertGlossaryEntry', post, (err, data) => {
 				err ? console.log(err) : console.log(data);
@@ -31,9 +33,11 @@ function composer(props, onData) {
 		});
 	}
 
+	//A hugely reductionist view of psychological forces, the Four Temperaments allows us to break down the human experience into more easily understandable portions.
+
 	const handle = Meteor.subscribe('glossary');
 	if(handle.ready()) {
-		const entries = GlossaryEntries.find({}, {sort: {_id: 1}}).fetch();
+		const entries = GlossaryEntries.find({userId: currentUser}, {sort: {createdAt: 1}}).fetch();
 		onData(null, {currentUser, entries, submitEntry, deleteEntry});
 	};
 };
