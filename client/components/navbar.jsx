@@ -1,4 +1,5 @@
 import React from 'react';
+import AccountsUIWrapper from '/client/components/accountsUIWrapper.jsx';
 
 export default Navbar = React.createClass({
   componentDidMount() {
@@ -19,6 +20,7 @@ export default Navbar = React.createClass({
 
           <ul className="right">
             <li>Kaleidoscope</li>
+            <AccountsUIWrapper />
           </ul>
 
           <ul id="slide-out" className="side-nav">
