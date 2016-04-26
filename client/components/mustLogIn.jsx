@@ -15,6 +15,6 @@ export default MustLogIn = () => (
 					</div>
 				</div>
 			</div>
-		  </div>
+		</div>
 	</div>
 );
