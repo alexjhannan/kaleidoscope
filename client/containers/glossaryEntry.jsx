@@ -5,6 +5,8 @@ import {Meteor} from 'meteor/meteor';
 import {GlossaryEntries} from '/lib/collections.jsx';
 
 function composer(props, onData) {
+	let currentUser = Meteor.userId();
+
 	let editEntry = (_id, e) => {
 		e.preventDefault();
 		let description = e.target.description.value;
@@ -18,8 +20,7 @@ function composer(props, onData) {
 	if(handle.ready()) {
 		const entry = GlossaryEntries.findOne(props._id);
 		console.log(entry);
-		let currentUser = Meteor.userId();
-		onData(null, {entry, editEntry, currentUser});
+		onData(null, {currentUser, entry, editEntry});
 	};
 };
 

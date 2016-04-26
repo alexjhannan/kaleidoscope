@@ -1,7 +1,7 @@
 import React from 'react';
 import MustLogIn from '/client/components/mustLogIn.jsx';
 
-export default GlossaryEntry = ({entry, editEntry, currentUser}) => {
+export default GlossaryEntry = ({currentUser, entry, editEntry}) => {
 	if (currentUser) {
 		console.log(currentUser + " is logged in");
 
