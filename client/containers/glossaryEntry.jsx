@@ -18,7 +18,8 @@ function composer(props, onData) {
 	if(handle.ready()) {
 		const entry = GlossaryEntries.findOne(props._id);
 		console.log(entry);
-		onData(null, {entry, editEntry});
+		let currentUser = Meteor.userId();
+		onData(null, {entry, editEntry, currentUser});
 	};
 };
 
