@@ -5,6 +5,8 @@ import {Meteor} from 'meteor/meteor';
 import {Characters} from '/lib/collections.jsx';
 
 function composer(props, onData) {
+	let currentUser = Meteor.userId();
+
 	let insertCharacter = (attributes, cb) => {
 		attributes.name = "Bob";
 		attributes.element="air";
@@ -34,7 +36,7 @@ function composer(props, onData) {
 	const handle = Meteor.subscribe('characters');
 	if(handle.ready()) {
 		const characters = Characters.find({}, {sort: {createdAt: 1}}).fetch();
-		onData(null, {characters, insertCharacter, updateCharacter, deleteCharacter});
+		onData(null, {currentUser, characters, insertCharacter, updateCharacter, deleteCharacter});
 	};
 };
 

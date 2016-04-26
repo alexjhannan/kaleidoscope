@@ -1,4 +1,5 @@
 import React from 'react';
+import MustLogIn from '/client/components/mustLogIn.jsx';
 
 export default CharacterBoard = React.createClass({
   // LIFE CYCLE HOOKS
@@ -168,8 +169,9 @@ export default CharacterBoard = React.createClass({
     }
   },
 	render() {
-		return (
-			<div className="row">
+    if (this.props.currentUser) {
+      return (
+      <div className="row">
 
         <div className="col s12 l4 push-l4 center">
           {this.renderCharacterColumn()}
@@ -199,6 +201,9 @@ export default CharacterBoard = React.createClass({
           </div>
         </div>
       </div>
-		)
+      )
+    } else {
+      return <MustLogIn />;
+    }
 	}
 });
