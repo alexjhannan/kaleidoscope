@@ -9,8 +9,10 @@ function composer(props, onData) {
 
 	let insertCharacter = (attributes, cb) => {
 		attributes.name = "Bob";
-		attributes.element="air";
-		attributes.title="The Rossiest";
+		attributes.element = "air";
+		attributes.title = "The Rossiest";
+		attributes.createdAt = Date.now();
+		attributes.userId = currentUser;
 		Meteor.call('insertCharacter', attributes, (err, data) => {
 			if (err) {
 				console.log(err);
@@ -35,7 +37,7 @@ function composer(props, onData) {
 
 	const handle = Meteor.subscribe('characters');
 	if(handle.ready()) {
-		const characters = Characters.find({}, {sort: {createdAt: 1}}).fetch();
+		const characters = Characters.find({userId: currentUser}, {sort: {createdAt: 1}}).fetch();
 		onData(null, {currentUser, characters, insertCharacter, updateCharacter, deleteCharacter});
 	};
 };

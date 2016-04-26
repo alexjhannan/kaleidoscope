@@ -169,7 +169,7 @@ export default CharacterBoard = React.createClass({
     }
   },
 	render() {
-    if (this.props.currentUser) {
+    if (this.props.currentUser && this.props.characters.length) {
       return (
       <div className="row">
 
@@ -202,8 +202,37 @@ export default CharacterBoard = React.createClass({
         </div>
       </div>
       )
+    } else if (this.props.currentUser && !this.props.characters.length) {
+      return (
+        <div className="container">
+          <div className="row">
+            <div className="center">
+              <div className="card general--largeCard">
+                <div className="card-content">
+                  <span className="card-title white-text">Character Board</span>
+                  <p className="white-text">It doesn't look like you have any characters. Would you like to make one now?</p>
+                </div>
+                <div className="card-action">
+                  <div className="row">
+                    <div className="col s3 offset-s3">
+                      <a href="/">
+                        <i className="material-icons white-text">cancel</i>
+                      </a>
+                    </div>
+                    <div className="col s3">
+                      <a onClick={this.confirmAdd}>
+                        <i className="material-icons white-text">done</i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
     } else {
-      return <MustLogIn />;
+      return <MustLogIn />
     }
 	}
 });

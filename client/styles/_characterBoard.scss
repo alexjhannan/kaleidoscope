@@ -6,9 +6,8 @@
 }
 
 .characterBoard--characterPlate {
-	/* Box: */
 	background: rgba(82,61,102,0.05);
-	border: 1px solid #7A6F82;
+	border: 1px solid $kaleid-main-light;
 	width: 100%;
 	border-radius: 20px;
 
@@ -23,7 +22,7 @@
 	}
 
 	hr {
-		border: 1px solid #7A6F82;
+		border: 1px solid $kaleid-main-light;
 		width: 80%;
 		margin-top: 15px;
 	}
@@ -81,11 +80,7 @@
 }
 
 .characterBoard--majorButton {
-	border: 1px solid #523D66;
-	box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.50);
-	border-radius: 20px;
 	margin-top: 75px;
-
 	h3 {
 		font-family: AmericanTypewriter;
 		font-size: 24px;
